@@ -1,0 +1,312 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f5f9ff;
+  color: #333;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  color: #1e90ff;
+  text-align: center;
+}
+
+h2 {
+  color: #1e90ff;
+  border-bottom: 2px solid #1e90ff;
+  padding-bottom: 5px;
+}
+
+.alphabet-section {
+  margin-bottom: 30px;
+}
+
+.alphabet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.alphabet-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  color: #333;
+}
+
+.alphabet-card.learned {
+  background-color: #e6f7ff;
+  border-left: 4px solid #1e90ff;
+}
+
+.alphabet-char {
+  font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: 2.5em;
+  margin-bottom: 5px;
+}
+
+.alphabet-romaji {
+  font-weight: bold;
+  color: #1e90ff;
+}
+
+.progress-container {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  margin-top: 10px;
+  height: 6px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 6px;
+  background-color: #1e90ff;
+  border-radius: 5px;
+  width: 0%;
+  transition: width 0.3s;
+}
+
+.practice-btn {
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px auto;
+  font-size: 1em;
+  display: block;
+  transition: background-color 0.2s;
+}
+
+.practice-btn:hover {
+  background-color: #187bcd;
+}
+
+/* Modal untuk latihan */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  color: #333;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.quiz-char {
+  font-family: "Malgun Gothic", sans-serif;
+  font-size: 4em;
+  margin: 20px 0;
+}
+
+.quiz-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.quiz-option {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #333;
+  background-color: white;
+  user-select: none;
+}
+
+.quiz-option:hover {
+  background-color: #f0f0f0;
+}
+
+.quiz-option.correct {
+  background-color: #e6f7ff;
+  border-color: #1e90ff;
+  color: #1e90ff;
+}
+
+.quiz-option.incorrect {
+  background-color: #ffebee;
+  border-color: #f44336;
+  color: #f44336;
+}
+
+.close-modal {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.result-modal {
+  text-align: center;
+}
+
+.result-score {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #1e90ff;
+  margin: 15px 0;
+}
+
+.feedback {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.feedback.correct {
+  color: #1e90ff;
+}
+
+.feedback.incorrect {
+  color: #f44336;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  background-color: #e0e0e0;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 5px;
+  color: #333;
+  user-select: none;
+}
+
+.tab-btn.active {
+  background-color: #1e90ff;
+  color: white;
+}
+
+/* Dark mode CSS */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode h1,
+body.dark-mode h2 {
+  color: #1e90ff;
+}
+
+body.dark-mode .alphabet-card {
+  background-color: #222;
+  color: #e0e0e0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+body.dark-mode .alphabet-card.learned {
+  background-color: #003766;
+  border-left: 4px solid #1e90ff;
+}
+
+body.dark-mode .progress-container {
+  background-color: #444;
+}
+
+body.dark-mode .progress-bar {
+  background-color: #1e90ff;
+}
+
+body.dark-mode .practice-btn {
+  background-color: #1e90ff;
+  color: white;
+}
+
+body.dark-mode .practice-btn:hover {
+  background-color: #187bcd;
+}
+
+body.dark-mode .tab-btn {
+  background-color: #222;
+  color: #e0e0e0;
+}
+
+body.dark-mode .tab-btn.active {
+  background-color: #1e90ff;
+  color: white;
+}
+
+/* Modal & quiz options in dark mode */
+body.dark-mode .modal-content {
+  background-color: #222;
+  color: #e0e0e0;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode .quiz-char {
+  color: #1e90ff;
+}
+
+body.dark-mode .quiz-option {
+  border-color: #555;
+  background-color: #333;
+  color: #ddd;
+}
+
+body.dark-mode .quiz-option:hover {
+  background-color: #444;
+}
+
+body.dark-mode .quiz-option.correct {
+  background-color: #004a75;
+  border-color: #1e90ff;
+  color: #1e90ff;
+}
+
+body.dark-mode .quiz-option.incorrect {
+  background-color: #8b0000;
+  border-color: #f44336;
+  color: #f44336;
+}
+
+body.dark-mode .close-modal {
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+/* Responsive tweaks for tab buttons */
+@media (max-width: 480px) {
+  .tab-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Belajar Hangeul Lengkap</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Mari Belajar Hangeul Lengkap!</h1>
+    <div style="text-align: center; margin: 10px 0">
+      <button
+        class="tab-btn"
+        id="toggle-theme"
+        onclick="toggleTheme()"
+        aria-label="Toggle dark/light mode"
+      >
+        Mode Gelap/Terang
+      </button>
+    </div>
+    <p>Pelajari semua huruf dalam sistem penulisan bahasa Korea.</p>
+
+    <div class="tab-buttons" role="tablist">
+      <button
+        class="tab-btn active"
+        onclick="openTab('basic-consonants')"
+        role="tab"
+        aria-selected="true"
+        aria-controls="basic-consonants"
+        id="tab-basic-consonants"
+      >
+        Konsonan Dasar
+      </button>
+      <button
+        class="tab-btn"
+        onclick="openTab('double-consonants')"
+        role="tab"
+        aria-selected="false"
+        aria-controls="double-consonants"
+        id="tab-double-consonants"
+      >
+        Konsonan Ganda
+      </button>
+      <button
+        class="tab-btn"
+        onclick="openTab('basic-vowels')"
+        role="tab"
+        aria-selected="false"
+        aria-controls="basic-vowels"
+        id="tab-basic-vowels"
+      >
+        Vokal Dasar
+      </button>
+      <button
+        class="tab-btn"
+        onclick="openTab('double-vowels')"
+        role="tab"
+        aria-selected="false"
+        aria-controls="double-vowels"
+        id="tab-double-vowels"
+      >
+        Vokal Ganda
+      </button>
+    </div>
+
+    <button class="practice-btn" onclick="startPracticeSession()">
+      Mulai Latihan
+    </button>
+
+    <div
+      id="basic-consonants"
+      class="tab-content active"
+      role="tabpanel"
+      aria-labelledby="tab-basic-consonants"
+    >
+      <div class="alphabet-section">
+        <h2>KONSONAN DASAR</h2>
+        <div class="alphabet-grid" id="basic-consonants-grid">
+          <!-- Konsonan dasar akan diisi oleh JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="double-consonants"
+      class="tab-content"
+      role="tabpanel"
+      aria-labelledby="tab-double-consonants"
+      hidden
+    >
+      <div class="alphabet-section">
+        <h2>KONSONAN GANDA</h2>
+        <div class="alphabet-grid" id="double-consonants-grid">
+          <!-- Konsonan ganda akan diisi oleh JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="basic-vowels"
+      class="tab-content"
+      role="tabpanel"
+      aria-labelledby="tab-basic-vowels"
+      hidden
+    >
+      <div class="alphabet-section">
+        <h2>VOKAL DASAR</h2>
+        <div class="alphabet-grid" id="basic-vowels-grid">
+          <!-- Vokal dasar akan diisi oleh JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="double-vowels"
+      class="tab-content"
+      role="tabpanel"
+      aria-labelledby="tab-double-vowels"
+      hidden
+    >
+      <div class="alphabet-section">
+        <h2>VOKAL GANDA</h2>
+        <div class="alphabet-grid" id="double-vowels-grid">
+          <!-- Vokal ganda akan diisi oleh JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal untuk latihan -->
+    <div
+      class="modal"
+      id="practice-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="practice-title"
+      tabindex="-1"
+    >
+      <div class="modal-content">
+        <h2 id="practice-title">Latihan Menebak Huruf</h2>
+        <div class="quiz-char" id="quiz-char">ㄱ</div>
+        <p>Apa huruf ini?</p>
+        <div class="quiz-options" id="quiz-options">
+          <!-- Opsi jawaban akan diisi oleh JavaScript -->
+        </div>
+        <div class="feedback" id="feedback" role="alert"></div>
+      </div>
+    </div>
+
+    <!-- Modal hasil latihan -->
+    <div
+      class="modal"
+      id="result-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="result-title"
+      tabindex="-1"
+    >
+      <div class="modal-content result-modal">
+        <h2 id="result-title">Hasil Latihan</h2>
+        <div class="result-score" id="result-score"></div>
+        <p id="result-message"></p>
+        <button class="close-modal" onclick="closeResultModal()">Tutup</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
